@@ -16,10 +16,26 @@
     </div>
 
     <div class="row">
+      <div class="col-xs-4">
+        <h3>Register a new Puppy</h3>
+        <label>Name</label><br/>
+        <input type="text" ng-model="puppyName" class='form-control'></input><br/>
+        <label>Breed</label><br/>
+        <select ng-model="breed" class='form-control'>
+          <option ng-repeat="breed in breeds"> {{ breed.name }}</option>
+        </select><br/>
+        <button class="btn btn-primary btn-block">Register Puppy</button>
+    </div>
+    </div>
 
-      <select ng-model="breed">
-        <option ng-repeat="breed in breeds"> {{ breed.name }}</option>
-      </select>
+    <div class="row">
+      <table class='table table-striped'>
+        <tbody>
+          <tr>
+            <td>bla</td>
+          </tr>
+      </tbody>
+      </table>
     </div>
   </div>
 </body>
@@ -35,4 +51,5 @@
 
 <!-- services -->
 <script type="text/javascript" src="js/services/breedService.js"></script>
+<script type="text/javascript" src="js/services/puppyService.js"></script>
 </html>
