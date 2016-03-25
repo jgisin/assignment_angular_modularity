@@ -21,20 +21,28 @@
         <label>Name</label><br/>
         <input type="text" ng-model="puppyName" class='form-control'></input><br/>
         <label>Breed</label><br/>
-        <select ng-model="breed" class='form-control'>
-          <option ng-repeat="breed in breeds"> {{ breed.name }}</option>
+        <select ng-model="breedId" class='form-control'>
+          <option ng-repeat="breed in breeds" value="{{ breed.id }}"> {{ breed.name }}</option>
         </select><br/>
-        <button class="btn btn-primary btn-block">Register Puppy</button>
+        <button class="btn btn-primary btn-block" ng-click="createPuppy(puppyName, breedId)">Register Puppy</button>
     </div>
     </div>
 
     <div class="row">
       <table class='table table-striped'>
-        <tbody>
+
+        <thead>
           <tr>
-            <td>bla</td>
+            <th>Name</th>
+            <th>Breed</th>
+            <th>Birthdate</th>
+            <th>Adopt</th>
           </tr>
-      </tbody>
+        </thead>
+        <tbody>
+          <tr ng-repeat="puppy in puppies" puppy-list puppy="puppy" adopt-puppy="adoptPuppy($index)">
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>
@@ -52,4 +60,8 @@
 <!-- services -->
 <script type="text/javascript" src="js/services/breedService.js"></script>
 <script type="text/javascript" src="js/services/puppyService.js"></script>
+
+<!-- directives -->
+<script type="text/javascript" src="js/directives/puppyList.js"></script>
+
 </html>

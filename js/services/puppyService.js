@@ -4,7 +4,7 @@ puppyApp.factory("puppyService", ['$http', function($http){
   var obj = {};
 
   var _callPuppies = function(){
-    $http.get('https://pacific-stream-9205.herokuapp.com/puppies.json')
+    $http.get('https://ajax-puppies.herokuapp.com/puppies.json')
     .then(function(data){
       data.data.forEach(function(puppy){
         _puppies.push(puppy);
@@ -13,6 +13,10 @@ puppyApp.factory("puppyService", ['$http', function($http){
       console.log('it broke');
     });
   };
+
+  obj.createPuppy = function(name, breed_id) {
+    $http.post('https://ajax-puppies.herokuapp.com/puppies.json', {name: name, breed_id: breed_id})
+  }
 
   obj.getPuppies = function(){
     _puppies = [];

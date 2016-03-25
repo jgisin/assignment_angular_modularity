@@ -3,7 +3,7 @@ puppyApp.factory("breedService", ['$http', function($http){
   var obj = {};
   var _breeds = [];
 
-  var _callBreeds = function() {$http.get('https://pacific-stream-9205.herokuapp.com/breeds.json')
+  var _callBreeds = function() {$http.get('https://ajax-puppies.herokuapp.com/breeds.json')
     .then(function(data){
       data.data.forEach(function(breed) {
         _breeds.push(breed);
