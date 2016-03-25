@@ -40,7 +40,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="puppy in puppies" puppy-list puppy="puppy" adopt-puppy="adoptPuppy($index)">
+          <tr ng-repeat="puppy in puppies" puppy-list puppy="puppy" adopt-puppy="adoptPuppy(puppy.id)">
           </tr>
         </tbody>
       </table>

@@ -15,13 +15,21 @@ puppyApp.factory("puppyService", ['$http', function($http){
   };
 
   obj.createPuppy = function(name, breed_id) {
-    $http.post('https://ajax-puppies.herokuapp.com/puppies.json', {name: name, breed_id: breed_id})
-  }
+    $http.post('https://ajax-puppies.herokuapp.com/puppies.json', {name: name, breed_id: breed_id});
+  };
 
   obj.getPuppies = function(){
     _puppies = [];
     _callPuppies();
     return _puppies;
+  };
+
+  obj.removePuppy = function(id){
+    $http.delete('https://ajax-puppies.herokuapp.com/puppies/' + id +'.json').then(function(){
+      console.log('it adopted');
+    }, function(){
+      console.log('it broke');
+    });
   };
 
   return obj;

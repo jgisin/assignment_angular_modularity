@@ -7,5 +7,5 @@ puppyApp.directive('puppyList', function() {
       puppy: "=",
       adoptPuppy: "&"
     }
-  }
-})
+  };
+});
